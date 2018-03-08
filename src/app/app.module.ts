@@ -13,7 +13,7 @@ import { CooperProvider } from '../providers/cooper/cooper';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,7 @@ import { CooperProvider } from '../providers/cooper/cooper';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    HomePage
   ],
   providers: [
     StatusBar,

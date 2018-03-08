@@ -38,14 +38,4 @@ export class MyApp {
   }
 }
 
-export class HomePage {
-  user: any = {};
-  calculate() {
-    console.log(this.user);
-
-  constructor(public navCtrl: NavController) {
-    this.user = { distance: 1000, age: 28 };
-  }
-}
-}
 
