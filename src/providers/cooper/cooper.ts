@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 
-
 @Injectable()
 export class CooperProvider {
   constructor() {
@@ -38,7 +37,7 @@ export class CooperProvider {
     }
   };
 
-  public assess(person, distance: number):: string {
+  public assess(person, distance: number): string {
     return this.getRating(person, distance);
   }
 
@@ -64,39 +63,35 @@ export class CooperProvider {
   }
 
   private getRating(person, distance): string {
-      const ageRange = this.ageRange(person.age);
+    const ageRange = this.ageRange(person.age);
 
-      if (ageRange === 'invalid range') {
-        return 'Invalid age range';
-      }
+    if (ageRange === 'invalid range') {
+      return 'Invalid age range';
+    }
 
-      const distanceRanges = this.cooperTable[person.gender.toLowerCase()][
-        ageRange
-      ];
+    const distanceRanges = this.cooperTable[person.gender.toLowerCase()][
+      ageRange
+    ];
 
-      let ratingIndex: number;
+    let ratingIndex: number;
 
-      distanceRanges.forEach((dRange, index) => {
-        if (
-          (dRange.match(/>\d*/) && distance >= parseInt(dRange.slice(1), 10)) ||
-          (dRange.match(/<\d*/) && distance < parseInt(dRange.slice(1), 10))
-        ) {
+    distanceRanges.forEach((dRange, index) => {
+      if (
+        (dRange.match(/>\d*/) && distance >= parseInt(dRange.slice(1), 10)) ||
+        (dRange.match(/<\d*/) && distance < parseInt(dRange.slice(1), 10))
+      ) {
+        ratingIndex = index;
+      } else {
+        const minMax = dRange.split('-');
+        const min = parseInt(minMax[0], 10);
+        const max = parseInt(minMax[1], 10);
+
+        if (distance >= min && distance <= max) {
           ratingIndex = index;
-        } else {
-          const minMax = dRange.split('-');
-          const min = parseInt(minMax[0], 10);
-          const max = parseInt(minMax[1], 10);
-
-          if (distance >= min && distance <= max) {
-            ratingIndex = index;
-          }
         }
-      });
+      }
+    });
 
-      return this.ratings[ratingIndex];
-    }
+    return this.ratings[ratingIndex];
   }
-    }
-  }
-
 }
