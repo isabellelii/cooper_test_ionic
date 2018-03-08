@@ -9,6 +9,9 @@
       <button ion-item (click)="loginPopUp()" *ngIf="!currentUser">
         Login
       </button>
+      <button ion-item (click)="registerAccountPopUp()" *ngIf="!currentUser">
+        Register
+      </button>
       <button ion-item (click)="logout()" *ngIf="currentUser">
         Logout {{currentUser.email}}
       </button>
