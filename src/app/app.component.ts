@@ -36,3 +36,8 @@ export class MyApp {
   }
 }
 
+export class HomePage {
+  user: any = {};
+  ...
+
+}
