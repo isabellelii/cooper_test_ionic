@@ -6,7 +6,7 @@ import { Angular2TokenService} from 'angular2-token';
 import 'rxjs/add/operator/map';
 
 import { HomePage } from '../pages/home/home';
-
+import { ResultsPage } from '../pages/results/results';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +28,7 @@ export class MyApp {
     public alertCtrl: AlertController
   ) {
     this._tokenService.init({
-      apiBase: 'https://kmt-cooper-api.herokuapp.com/'
+      apiBase: 'https://kmt-cooper-api.herokuapp.com/api/v1'
       
     });
   

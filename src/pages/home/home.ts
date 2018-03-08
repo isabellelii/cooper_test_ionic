@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
 import { PersonProvider } from '../../providers/person/person';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
 import { ResultsPage } from '../results/results';
 
@@ -9,26 +10,30 @@ import { ResultsPage } from '../results/results';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  user: any = {};
+  distance: number = 1000;
 
   constructor(
-    public navCtrl: NavController, 
-    public person: PersonProvider, 
-    public performanceData: PerformanceDataProvider, 
-    public modalCtrl: ModalController
+    public navCtrl: NavController,
+    public modalCtrl: ModalController,
+    public person: PersonProvider,
+    public performanceData: PerformanceDataProvider
   ) {
-    this.user = { distance: 1000, age: 28, gender: 'female' };
+    this.person.age = 20;
+    this.person.gender = 'female';
   }
+  
+  calculate() {
+    this.person.doAssessment(this.distance);
+  } 
 
-  calculate(user) {
-    this.person.doAssessment(user.distance);
+  showResults() {
+    this.modalCtrl.create(ResultsPage).present();
+  }
+  
+  saveResults() {
     this.performanceData
       .saveData({ performance_data: { data: { message: this.person.assessmentMessage } } })
       .subscribe(data => console.log(data));
   }
 
-  showResults() {
-    this.modalCtrl.create(ResultsPage).present();
-  
-  }
 }
