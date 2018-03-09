@@ -29,11 +29,12 @@ export class MyApp {
   ) {
     this._tokenService.init({
       apiBase: 'https://kmt-cooper-api.herokuapp.com/api/v1'
-      
+
+
     });
-  
+
     this.initializeApp();
-  
+
     this.pages = [
       { title: 'Home', component: HomePage }
     ];
@@ -147,4 +148,3 @@ export class MyApp {
     this.currentUser = undefined;
   }
 }
-

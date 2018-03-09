@@ -19,7 +19,7 @@ import { ResultsPage } from '../pages/results/results';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, 
+    HomePage,
     ResultsPage
   ],
   imports: [
@@ -27,11 +27,12 @@ import { ResultsPage } from '../pages/results/results';
     IonicModule.forRoot(MyApp),
     HttpModule,
     RouterModule,
+    A2tUiModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage, 
+    HomePage,
     ResultsPage
   ],
   providers: [
@@ -41,7 +42,7 @@ import { ResultsPage } from '../pages/results/results';
     PersonProvider,
     CooperProvider,
     Angular2TokenService,
-    PerformanceDataProvider, 
+    PerformanceDataProvider,
   ]
 })
 export class AppModule {}
