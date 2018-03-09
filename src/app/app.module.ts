@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Angular2TokenService, A2tUiModule } from 'angular2-token';
+import { ChartsModule } from 'ng2-charts';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -27,7 +28,8 @@ import { ResultsPage } from '../pages/results/results';
     IonicModule.forRoot(MyApp),
     HttpModule,
     RouterModule,
-    A2tUiModule
+    A2tUiModule, 
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
