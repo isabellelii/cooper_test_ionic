@@ -19,7 +19,7 @@ export class ResultsPage {
     private performanceData: PerformanceDataProvider,
     private viewCtrl: ViewController,
     public navCtrl: NavController,
-    public navParams: NavParams,
+    public navParams: NavParams
   ) {}
 
   getLabels(collection: any) {
