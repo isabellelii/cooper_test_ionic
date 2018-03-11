@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar>
-    <button ion-button (click)="dismissModal()">
+    <button ion-button (click)="dismissModal()"color="secondary">
       <ion-icon name="close"></ion-icon>
     </button>
     <ion-title>Results</ion-title>
@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content padding>
     <div padding>
-        <ion-segment [(ngModel)]="view">
+        <ion-segment [(ngModel)]="view"color="secondary">
             <ion-segment-button value="data">
                 Data
             </ion-segment-button>

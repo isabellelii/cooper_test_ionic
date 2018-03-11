@@ -1,12 +1,12 @@
 <ion-header>
     <ion-navbar>
       <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon name="menu" color="secondary"></ion-icon>
       </button>
       <ion-title>Home</ion-title>
     </ion-navbar>
   </ion-header>
-  
+
   <ion-content padding>
     <ion-list>
       <ion-item>
@@ -22,19 +22,19 @@
       </ion-item>
       <ion-item>
         <ion-label>Age:
-          <ion-badge *ngIf="person.age"> {{person.age}}</ion-badge>
+          <ion-badge *ngIf="person.age"color="secondary">{{person.age}}</ion-badge>
         </ion-label>
-        <ion-range min="10" max="120" [(ngModel)]="person.age" >
+        <ion-range min="10" max="120" [(ngModel)]="person.age"color="secondary">
           <ion-label range-left>10</ion-label>
           <ion-label range-right>120</ion-label>
         </ion-range>
       </ion-item>
     </ion-list>
-    
-    <button block ion-button (click)="calculate()">Calculate</button>
-    <button block ion-button (click)="showResults()">All Results</button>
-  
-  
+
+    <button block ion-button (click)="calculate()" color="secondary">Calculate</button>
+    <button block ion-button (click)="showResults()"color="secondary">All Results</button>
+
+
     <ion-card *ngIf="person?.assessmentMessage">
       <ion-card-header>
         Cooper Test Results
@@ -43,8 +43,8 @@
         Gender: {{person?.gender}}, Age: {{person?.age}} <br/> Result: {{person?.assessmentMessage}}
       </ion-card-content>
     </ion-card>
-  
-    <button *ngIf="person?.assessmentMessage" block ion-button (click)="saveResults()">Save Results</button>
-  
-  
+
+    <button *ngIf="person?.assessmentMessage" block ion-button (click)="saveResults()" color="secondary">Save Results</button>
+
+
   </ion-content>
